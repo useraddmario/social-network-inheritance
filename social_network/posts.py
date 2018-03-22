@@ -4,6 +4,7 @@ from datetime import datetime
 class Post(object):
     def __init__(self, text, timestamp=None):
         self.text = text
+        # I used the datetime.utcnow() from the answer, but I originally used datetime.datetime.now()
         self.timestamp = timestamp or datetime.utcnow()
         self.user = None
 
@@ -17,6 +18,7 @@ class TextPost(Post):  # Inherit properly
          
 
     def __str__(self):
+        # I had a similar solution, but had no idea how to remove the "" from self.text, I was trying self.text.strip('"')
         return '@{first_name} {last_name}: "{text}"\n\t{date}'.format(
             first_name=self.user.first_name,
             last_name=self.user.last_name,
@@ -30,6 +32,7 @@ class PicturePost(Post):  # Inherit properly
         self.image_url = image_url
         
     def __str__(self):
+        # I had a similar solution, but had no idea how to remove the "" from self.text, I was trying self.text.strip('"')
         return '@{first_name} {last_name}: "{text}"\n\t{img}\n\t{date}'.format(
             first_name=self.user.first_name,
             last_name=self.user.last_name,
@@ -45,6 +48,7 @@ class CheckInPost(Post):  # Inherit properly
         self.longitude = longitude
 
     def __str__(self):
+        # I had a similar solution, but had no idea how to remove the "" from self.text, I was trying self.text.strip('"')
         return ('@{first_name} Checked In: "{text}"'
                 '\n\t{coordinates}\n\t{date}').format(
             first_name=self.user.first_name,
