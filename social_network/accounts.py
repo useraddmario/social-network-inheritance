@@ -14,6 +14,7 @@ class User(object):
         timeline = []
         for followed in self.following:
             timeline += followed.posts
+        #I didn't get this and had to look at the answer, which I do understand.
         return sorted(timeline, key=lambda x: x.timestamp, reverse=False)
 
     def follow(self, other):
